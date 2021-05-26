@@ -1,0 +1,27 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class maxmirror{
+ static String me(String str){
+ int n =str.length();
+ String a ="";
+ String b ="";
+ String c ="";
+ for( int i=0; i<n; i++){
+ b += str.substring(i,i+1);
+ c= "";
+ for(int j=b.length()-1; j>=0;j--){
+ c += b.substring(j,j+1);
+ if(c.equals(str.substring(n-i-1,n)))
+ a = b;
+ }
+ }
+ return a;
+ }
+ public static void main(String args[]){
+  maxmirror m = new maxmirror();
+  String str1 = "abXYZba";
+  System.out.println("The mirror image of the string is" +m.me(str1));
+ }
+}
